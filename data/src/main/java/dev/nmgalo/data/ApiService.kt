@@ -1,10 +1,11 @@
 package dev.nmgalo.data
 
+import dev.nmgalo.data.schedule.model.TimeTableDTO
 import retrofit2.http.GET
 
 interface ApiService {
 
-    @GET("schedule")
-    suspend fun schedule()
+    @GET("stations/timetable")
+    suspend fun schedule(): TimeTableDTO
 
 }
