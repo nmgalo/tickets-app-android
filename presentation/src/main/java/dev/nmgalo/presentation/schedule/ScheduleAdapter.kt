@@ -8,7 +8,7 @@ import dev.nmgalo.presentation.common.IntIdentityDiffUtilCallback
 import dev.nmgalo.presentation.databinding.ScheduleItemBinding
 import dev.nmgalo.presentation.utils.inflate
 
-class ScheduleAdapter : ListAdapter<ScheduleUiModel, ScheduleAdapter.ViewHolder>(
+class ScheduleAdapter : ListAdapter<ScheduleUIModel, ScheduleAdapter.ViewHolder>(
     IntIdentityDiffUtilCallback()
 ) {
 
@@ -22,7 +22,7 @@ class ScheduleAdapter : ListAdapter<ScheduleUiModel, ScheduleAdapter.ViewHolder>
 
     class ViewHolder(parent: ViewGroup) :
         RecyclerView.ViewHolder(parent.inflate(R.layout.schedule_item)) {
-        fun onBind(item: ScheduleUiModel) {
+        fun onBind(item: ScheduleUIModel) {
             val binder = ScheduleItemBinding.bind(itemView)
             binder.itemTitle.text = item.title
         }

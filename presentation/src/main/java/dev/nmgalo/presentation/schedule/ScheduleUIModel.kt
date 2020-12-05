@@ -2,13 +2,13 @@ package dev.nmgalo.presentation.schedule
 
 import dev.nmgalo.presentation.common.model.Identity
 
-class ScheduleUiModel(
+class ScheduleUIModel(
     override val id: Int,
     val title: String,
     val onClick: () -> Unit
 ) : Identity {
     constructor(
-        schedule: ScheduleUiModel,
+        schedule: ScheduleUIModel,
         onClick: () -> Unit
     ) : this(
         id = schedule.id,

@@ -13,7 +13,7 @@ class ScheduleViewModel @ViewModelInject constructor(
     private val scheduleUseCase: GetScheduleUseCase
 ) : ViewModel() {
 
-    val schedules = MutableLiveData<List<ScheduleUiModel>>()
+    val schedules = MutableLiveData<List<ScheduleUIModel>>()
 
     init {
         getSchedulesList()
