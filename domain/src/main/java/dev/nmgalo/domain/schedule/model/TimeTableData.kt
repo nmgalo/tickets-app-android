@@ -1,9 +1,6 @@
-package dev.nmgalo.presentation.schedule
+package dev.nmgalo.domain.schedule.model
 
-import dev.nmgalo.domain.schedule.model.TimeTableData
-
-
-class ScheduleUIModel(
+data class TimeTableData(
     val FromStationNumber: Int,
     val FromStationNameEng: String,
     val FromStationNameGeo: String,
@@ -16,13 +13,10 @@ class ScheduleUIModel(
     val EnteringDate: String,
     val TrainNumber: Int,
     val TrainName: String,
-    val IsTwoStorey: Boolean,
-    val onClick: () -> Unit,
-)  {
-
+    val IsTwoStorey: Boolean
+) {
     constructor(
-        tableData: TimeTableData,
-        onClick: () -> Unit
+        tableData: TimeTableData
     ) : this(
         FromStationNumber = tableData.FromStationNumber,
         FromStationNameEng = tableData.FromStationNameEng,
@@ -36,7 +30,6 @@ class ScheduleUIModel(
         EnteringDate = tableData.EnteringDate,
         TrainNumber = tableData.TrainNumber,
         TrainName = tableData.TrainName,
-        IsTwoStorey = tableData.IsTwoStorey,
-        onClick = onClick
+        IsTwoStorey = tableData.IsTwoStorey
     )
 }

@@ -11,4 +11,3 @@ class IntIdentityDiffUtilCallback<ID : Identity> : DiffUtil.ItemCallback<ID>() {
     override fun areContentsTheSame(oldItem: ID, newItem: ID) =
         oldItem == newItem
 }
-
