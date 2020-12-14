@@ -1,8 +1,9 @@
 package dev.nmgalo.presentation.schedule
 
-import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import dev.nmgalo.domain.schedule.model.TimeTableData
 import dev.nmgalo.domain.schedule.usecase.GetScheduleUseCase
 import kotlinx.coroutines.Dispatchers
@@ -10,9 +11,8 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class ScheduleViewModel @ViewModelInject constructor(
-    private val scheduleUseCase: GetScheduleUseCase,
-    @Assisted private val savedStateHandle: SavedStateHandle
-) : ViewModel(), LifecycleObserver {
+    private val scheduleUseCase: GetScheduleUseCase
+) : ViewModel() {
 
     val schedules = MutableLiveData<List<ScheduleUIModel>>()
 
