@@ -4,12 +4,15 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url "https://kotlin.bintray.com/kotlinx" }
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.0-alpha01"
+        classpath 'com.android.tools.build:gradle:4.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
-        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.29.1-alpha'
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.30.1-alpha'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -20,6 +23,12 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://kotlin.bintray.com/kotlinx/" }
+        jcenter {
+            content {
+                includeGroup "org.jetbrains.kotlinx"
+            }
+        }
     }
 }
 
