@@ -4,13 +4,18 @@ import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFact
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import java.util.concurrent.TimeUnit
+
+fun getHttpLoggingInterceptor() =
+    HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
 fun getOkHttp(): OkHttpClient = OkHttpClient.Builder()
     .connectTimeout(1, TimeUnit.MINUTES)
     .readTimeout(30, TimeUnit.SECONDS)
     .writeTimeout(15, TimeUnit.SECONDS)
+    .addInterceptor(getHttpLoggingInterceptor())
     .addInterceptor { chain ->
         val request = chain.request().newBuilder()
             .addHeader("Content-Type", "application/json")

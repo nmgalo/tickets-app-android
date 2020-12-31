@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import dev.nmgalo.presentation.R
-import dev.nmgalo.presentation.common.IntIdentityDiffUtilCallback
 import dev.nmgalo.presentation.databinding.ScheduleItemBinding
 import dev.nmgalo.presentation.utils.inflate
 
@@ -38,7 +37,6 @@ class ScheduleAdapter : ListAdapter<ScheduleUIModel, ScheduleAdapter.ViewHolder>
             oldItem: ScheduleUIModel,
             newItem: ScheduleUIModel
         ) = oldItem.GeorgianRailwayStationsId == newItem.GeorgianRailwayStationsId
-
     }
 
 }
