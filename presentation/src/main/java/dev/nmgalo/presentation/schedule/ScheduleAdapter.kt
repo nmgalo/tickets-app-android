@@ -22,7 +22,9 @@ class ScheduleAdapter : ListAdapter<ScheduleUIModel, ScheduleAdapter.ViewHolder>
         RecyclerView.ViewHolder(parent.inflate(R.layout.schedule_item)) {
         fun onBind(item: ScheduleUIModel) {
             val binder = ScheduleItemBinding.bind(itemView)
-            binder.itemTitle.text = item.EnteringDate
+            binder.trainNumberTextView.text = "N" + item.TrainNumber.toString()
+            binder.fromLocationTextView.text = item.FromStationNameGeo
+            binder.toLocationTextView.text = item.ToStationNameGeo
         }
     }
 

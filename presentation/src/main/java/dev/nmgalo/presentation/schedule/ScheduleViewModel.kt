@@ -22,11 +22,32 @@ class ScheduleViewModel @ViewModelInject constructor(
 
     private fun getSchedulesList() {
         viewModelScope.launch(Dispatchers.IO) {
-            scheduleUseCase.get().collect { scheduleResult ->
-                schedules.postValue(
-                    scheduleResult.map { item -> item.toUIModel() }
+//            test Data, because it's corona time and tkt.ge api service is unavailable :(
+            schedules.postValue(
+                listOf(
+                    ScheduleUIModel(
+                        FromStationNumber = 1,
+                        FromStationNameEng = "Tbilisi",
+                        FromStationNameGeo = "თბილისი",
+                        ToStationNumber = 1,
+                        ToStationNameEng = "Batumi",
+                        ToStationNameGeo = "ბათუმი",
+                        RequestDate = "tableData.RequestDate",
+                        GeorgianRailwayStationsId = 1,
+                        LeavingDate = "tableData.LeavingDate",
+                        EnteringDate = "tableData.EnteringDate",
+                        TrainNumber = 812973,
+                        TrainName = "tableData.TrainName",
+                        IsTwoStorey = true,
+                        onClick = {}
+                    )
                 )
-            }
+            )
+//            scheduleUseCase.get().collect { scheduleResult ->
+//                schedules.postValue(
+//                    scheduleResult.map { item -> item.toUIModel() }
+//                )
+//            }
         }
     }
 
