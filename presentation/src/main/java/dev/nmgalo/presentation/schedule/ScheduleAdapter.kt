@@ -8,6 +8,7 @@ import dev.nmgalo.presentation.R
 import dev.nmgalo.presentation.databinding.ScheduleItemBinding
 import dev.nmgalo.presentation.utils.inflate
 
+
 class ScheduleAdapter : ListAdapter<ScheduleUIModel, ScheduleAdapter.ViewHolder>(
     ListItemCallback()
 ) {
@@ -22,9 +23,11 @@ class ScheduleAdapter : ListAdapter<ScheduleUIModel, ScheduleAdapter.ViewHolder>
         RecyclerView.ViewHolder(parent.inflate(R.layout.schedule_item)) {
         fun onBind(item: ScheduleUIModel) {
             val binder = ScheduleItemBinding.bind(itemView)
-            binder.trainNumberTextView.text = "N" + item.TrainNumber.toString()
-            binder.fromLocationTextView.text = item.FromStationNameGeo
-            binder.toLocationTextView.text = item.ToStationNameGeo
+            binder.root.setOnClickListener { item.onClick() }
+            binder.fromStationTextView.text = item.FromStationNameGeo
+            binder.departureTimeTextView.text = "08:00"
+            binder.enteringTimeTextView.text = "12:19"
+            binder.toStationTextView.text = item.ToStationNameGeo
         }
     }
 

@@ -5,10 +5,8 @@ import dev.nmgalo.domain.schedule.model.TimeTableData
 
 class ScheduleUIModel(
     val FromStationNumber: Int,
-    val FromStationNameEng: String,
     val FromStationNameGeo: String,
     val ToStationNumber: Int,
-    val ToStationNameEng: String,
     val ToStationNameGeo: String,
     val RequestDate: String,
     val GeorgianRailwayStationsId: Int,
@@ -18,17 +16,15 @@ class ScheduleUIModel(
     val TrainName: String,
     val IsTwoStorey: Boolean,
     val onClick: () -> Unit,
-)  {
+) {
 
     constructor(
         tableData: TimeTableData,
         onClick: () -> Unit
     ) : this(
         FromStationNumber = tableData.FromStationNumber,
-        FromStationNameEng = tableData.FromStationNameEng,
         FromStationNameGeo = tableData.FromStationNameGeo,
         ToStationNumber = tableData.ToStationNumber,
-        ToStationNameEng = tableData.ToStationNameEng,
         ToStationNameGeo = tableData.ToStationNameGeo,
         RequestDate = tableData.RequestDate,
         GeorgianRailwayStationsId = tableData.GeorgianRailwayStationsId,
