@@ -1,15 +1,17 @@
 package dev.nmgalo.presentation.schedule
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.nmgalo.domain.schedule.usecase.GetScheduleUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ScheduleViewModel @ViewModelInject constructor(
+@HiltViewModel
+class ScheduleViewModel @Inject constructor(
     private val scheduleUseCase: GetScheduleUseCase
 ) : ViewModel() {
 
@@ -31,7 +33,6 @@ class ScheduleViewModel @ViewModelInject constructor(
                     }
                 )
             })
-
         }
 
     }
