@@ -10,9 +10,9 @@ import dev.nmgalo.presentation.common.BaseFragment
 import dev.nmgalo.presentation.databinding.FragmentScheduleBinding
 
 @AndroidEntryPoint
-class ScheduleFragment : BaseFragment(R.layout.fragment_schedule) {
+class ScheduleFragment : BaseFragment<ScheduleViewModel>(R.layout.fragment_schedule) {
 
-    private val viewModel: ScheduleViewModel by viewModels()
+    override val viewModel: ScheduleViewModel by viewModels()
 
     private val adapter = ScheduleAdapter()
 
@@ -25,6 +25,11 @@ class ScheduleFragment : BaseFragment(R.layout.fragment_schedule) {
         viewModel.schedules.observe(viewLifecycleOwner, adapter::submitList)
         scheduleRecyclerView.layoutManager = LinearLayoutManager(context)
         scheduleRecyclerView.adapter = adapter
+
+        toolbar.root.menu.findItem(R.id.filter).setOnMenuItemClickListener {
+            viewModel.showFilterBottomSheet()
+            true
+        }
     }
 
 }

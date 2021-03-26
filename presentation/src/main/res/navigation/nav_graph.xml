@@ -9,6 +9,16 @@
         android:id="@+id/scheduleFragment"
         android:name="dev.nmgalo.presentation.schedule.ScheduleFragment"
         android:label="ScheduleFragment"
-        tools:layout="@layout/fragment_schedule" />
-    
+        tools:layout="@layout/fragment_schedule">
+        <action
+            android:id="@+id/action_scheduleFragment_to_scheduleFilterBottomSheetFragment"
+            app:destination="@id/scheduleFilterBottomSheetFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/scheduleFilterBottomSheetFragment"
+        android:name="dev.nmgalo.presentation.schedule.filter.ScheduleFilterBottomSheetFragment"
+        android:label="ScheduleFilterBottomSheetFragment"
+        tools:layout="@layout/schedule_bottom_sheet_filter" />
+
 </navigation>
